@@ -1,0 +1,36 @@
+<!-- <h1>Heroes <small>Marvel y DC</small></h1>
+<hr>
+<div class="card-columns">
+    <div class="card">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <button type="button" class="btn btn-outline-primary btn-block"> Ver mas...</button>
+        </div>
+    </div>
+</div> -->
+<h1>Heroes <small>Marvel y DC</small></h1>
+<hr>
+<div class="card-columns">
+    <div class="card animated fadeIn fast" *ngFor="let heros of hero; let i = index;">
+        <!-- opcion 1 <img src="{{ heros.img}}" class="card-img-top" alt="..."> -->
+        <!-- angular lo interpreata -->
+        <img [src]="heros.img" class="card-img-top" [alt]="heros.nombre">
+        <div class="card-body">
+            <h5 class="card-title">{{heros.nombre}}</h5>
+            <p class="card-text">{{heros.bio}}</p>
+            <p class="card-text"><small class="text-muted">{{heros.aparicion}}</small></p>
+            <button type="button" (click)="verHeroe(i)" class="btn btn-outline-primary btn-block"> Ver mas...</button>
+            <!-- Versino 3  -->
+            <!-- <button type="button" class="btn btn-outline-primary btn-block"> Ver mas...</button> -->
+            <!-- COn este tipo de ejemplo no redirecciona bien porque al esta ubicado actualmente ne una subcarpeta 
+            intentara hacer desde ahi la redirrcion la solucion en este caso es colocar asi 
+             <a [routerLink]="['/heroe',i]" routerLinkActive="router-link-active" class="btn btn-outline-primary">Ver mas </a>
+        -->
+            <a [routerLink]="['/heroe',i]" routerLinkActive="router-link-active" class="btn btn-outline-primary">Ver mas </a>
+
+        </div>
+    </div>
+</div>
