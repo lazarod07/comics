@@ -1,28 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import { HeroService } from '../../service/hero.service';
 import { ActivatedRoute } from '@angular/router';
-import { HerosService, Hero } from '../../services/heros.service';
 
 
 
 @Component({
   selector: 'app-hero-search',
   templateUrl: './hero-search.component.html',
-  styles: [
-  ]
+  styleUrls: ['./hero-search.component.css']
 })
 export class HeroSearchComponent implements OnInit {
-
-  hero:any = [];
-  constructor(  private _activateRoute: ActivatedRoute,  private _heroService: HerosService) {
-    this._activateRoute.params.subscribe(params=>{
-      // console.log(params['id']);
-      this.hero = this._heroService.getHero(params['termino']);
-      console.log(this.hero);
-    })
-   }
+  
+  hero: any[] = [];
+  busqueda: string;
+  constructor( private _heroService:HeroService,
+               private _activateRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
-
+    this._activateRoute.params.subscribe( params=>{
+      this.busqueda = params['busqueda'];
+      this.hero = this._heroService.buscarHeroe(params['busqueda']);
+    })
   }
-
 }

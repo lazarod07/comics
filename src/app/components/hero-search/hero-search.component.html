@@ -1,1 +1,12 @@
-<p>hero-search works!</p>
+<h1>Burcar por: <small>{{busqueda}}</small></h1>
+<hr>
+<div class="row animated fadeIn fast" *ngIf="hero.length == 0">
+    <div class="col-md-12">
+        <div class="alert alert-primary">
+            No existe resultados para su busqueda {{busqueda}}
+        </div>
+    </div>
+</div>
+<div class="card-columns">
+    <app-hero-card [heros]="heros" [index]="idx" *ngFor="let heros of hero; let idx = index;"></app-hero-card>
+</div>

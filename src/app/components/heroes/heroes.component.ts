@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HerosService, Hero } from '../../services/heros.service'
-// Para el boton esto se hace de ultimo
+import { HeroService,Hero } from '../../service/hero.service';
 import { Router } from '@angular/router';
 
 
@@ -12,19 +11,19 @@ import { Router } from '@angular/router';
 })
 export class HeroesComponent implements OnInit {
   
-  //hero:any[] = [];
-  hero:Hero[] = [];
-  constructor(private _heroService : HerosService,
-              private _router: Router) {
-    //  console.log('constructor');
-   }
-  
+  // hero:any[]=[];
+  hero:Hero[]=[];
+  constructor( private _heroService: HeroService, private _router: Router) { 
+  }
+
   ngOnInit(): void {
     this.hero = this._heroService.getHeros();
-    // console.log(this.hero);
+    console.log(this.hero);
   }
-  verHeroe( idx:number){
-   this._router.navigate(['/heroe',idx])
+  
+  verHeroe(id:number){
+    this._router.navigate(['/detalles',id]);
   }
+
 
 }
