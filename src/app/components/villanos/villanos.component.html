@@ -1,0 +1,8 @@
+<h1>Villanos <small>Marvel  y DC </small></h1>
+<hr>
+<div class="card-columns">
+    <!-- INPUT -->
+    <!-- <app-hero-card [heros]="foo" [index]="idx" *ngFor="let foo of hero; let idx = index;"></app-hero-card> -->
+    <!-- OUTPUT -->
+    <app-hero-card (heroSelected)="verHeroe($event)" [heros]="foo" [index]="idx" *ngFor="let foo of villano; let idx = index;"></app-hero-card>
+</div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroService } from '../../service/hero.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 
@@ -13,8 +13,7 @@ export class HeroSearchComponent implements OnInit {
   
   hero: any[] = [];
   busqueda: string;
-  constructor( private _heroService:HeroService,
-               private _activateRoute:ActivatedRoute) { }
+  constructor( private _heroService:HeroService,private _activateRoute:ActivatedRoute, private _router: Router) { }
 
   ngOnInit(): void {
     this._activateRoute.params.subscribe( params=>{

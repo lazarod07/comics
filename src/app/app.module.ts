@@ -8,6 +8,7 @@ import { HeroesComponent } from './components/heroes/heroes.component';
 import { AboutComponent } from './components/about/about.component';
 import { HeroDetailsComponent } from './components/hero-details/hero-details.component';
 import { HeroSearchComponent } from './components/hero-search/hero-search.component';
+import { VillanosComponent } from './components/villanos/villanos.component';
 
 // RUTAS
 
@@ -18,6 +19,7 @@ import { APP_ROUTING } from './app.routes';
 
 import { HeroService } from './service/hero.service';
 import { HeroCardComponent } from './components/hero-card/hero-card.component';
+import { VillanoDetailsComponent } from './components/villano-details/villano-details.component';
 
 
 
@@ -30,7 +32,9 @@ import { HeroCardComponent } from './components/hero-card/hero-card.component';
     AboutComponent,
     HeroDetailsComponent,
     HeroSearchComponent,
-    HeroCardComponent    
+    HeroCardComponent,
+    VillanosComponent,
+    VillanoDetailsComponent    
   ],
   imports: [
     BrowserModule,

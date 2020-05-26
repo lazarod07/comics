@@ -57,6 +57,40 @@ export class HeroService {
             }
     ];
 
+    private villain:Hero[]=
+        [
+            {
+              nombre: "Venom",
+              bio: "El personaje es un extraterrestre sensible simbionte con una forma amorfa, semi-líquido, que sobrevive mediante la unión con un huésped, por lo general humano.",
+              img: "assets/img/venom.jpg",
+              aparicion: "1984-12-8",
+              casa:"Marvel"
+            },
+            {
+              nombre: "Joker",
+              bio: "Se trata de uno de los criminales más notables de Gotham City, y es el enemigo principal de Batman.",
+              img: "assets/img/joker.jpg",
+              aparicion: "1939-05-01",
+              casa:"DC"
+            },
+            {
+              nombre: "Loki",
+              bio: "Loki Laufeyson (Tom Hiddleston) fue el hijo de Laufey, gobernante de los Gigantes de Hielo de Jotunheim, que poco después de su nacimiento, fue adoptado por el Rey de Asgard, Odín, Loki fue criado por Odín y su esposa Frigga como un príncipe de Asgard, junto con su hijo biológico Thor. Cuando creció, se hizo conocido como el “Dios del engaño”.",
+              img: "assets/img/loki.png",
+              aparicion: "1949-07-25",
+              casa:"Marvel"
+            },
+            {
+              nombre: "Thanos",
+              bio: "Thanos es uno de los villanos más poderosos de todo el Mundo Marvel y se ha enfrentado con muchos héroes, incluidos los Vengadores, los Guardianes de la Galaxia, los Cuatro Fantásticos, los X-Men, entre otros.",
+              img: "assets/img/thanos.jpg",
+              aparicion: "1973-02-07",
+              casa:"Marvel"
+            }
+
+            
+    ];
+
     constructor(){
         console.log("Servicio listo para usar!!");
     }
@@ -66,14 +100,28 @@ export class HeroService {
         return this.hero;
     }
 
+    getVillains():Hero[]{
+      return this.villain;
+    }
+
     getHero(id:number){
         return this.hero[id];   
+    }
+
+    getVillain(id:number){
+      return this.villain[id];   
     }
 
     buscarHeroe(palabra:string):Hero[]{
       let heroArr:Hero[] = [];
       palabra = palabra.toLowerCase();
       for( let hero of this.hero){
+        let nombre = hero.nombre.toLowerCase();
+        if(nombre.indexOf(palabra)>=0){
+           heroArr.push(hero);
+        }
+      }
+      for( let hero of this.villain){
         let nombre = hero.nombre.toLowerCase();
         if(nombre.indexOf(palabra)>=0){
            heroArr.push(hero);
